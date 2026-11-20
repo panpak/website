@@ -1,0 +1,33 @@
+name: Build website
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build with Zola
+        run: docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/site" -w /site ghcr.io/getzola/zola:v0.20.0 build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
+    steps:
+      - id: publish
+        uses: actions/deploy-pages@v4
