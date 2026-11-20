@@ -112,4 +112,17 @@ nav a[aria-current] { font-weight: 700; }
 .document p, .document li { margin-block: .8rem; }
 .document pre { padding: 1rem; overflow-x: auto; background: var(--paper); border: 1px solid var(--line); }
 .document .diagram { display: block; width: 100%; background: white; }
-.document .mascot { margin-inline: auto; }
+.workflow-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(5rem, 21vw, 11rem);
+  align-items: center;
+  gap: clamp(.8rem, 3vw, 2rem);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.workflow-intro .mascot { width: 100%; order: 0; }
+.workflow-intro p { margin: 1rem 0 0; }
+@media (max-width: 650px) {
+  .workflow-intro h1 { font-size: clamp(2rem, 9vw, 2.75rem); }
+}

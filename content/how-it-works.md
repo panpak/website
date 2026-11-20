@@ -2,9 +2,16 @@
 title = "How it works"
 +++
 
+<div class="workflow-intro">
+<div>
+
 # How it works
 
+[From app to package](#from-app-to-package) · [From package to user](#from-package-to-user)
+
+</div>
 <img class="mascot" src="/images/box-420.webp" width="420" height="420" alt="The Panpak mascot coming out of a cardboard box.">
+</div>
 
 **Diagram legend.** Solid blue boxes exist today. Dashed yellow boxes are planned. Green boxes mark decisions about trust. Grey boxes show questions or events.
 
