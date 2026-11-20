@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Panpak is a pre-beta package format for Linux apps. Explore the source builds, sandbox and project roadmap.">
+  <title>{% block title %}Panpak · Linux application packages{% endblock %}</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/outfit.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/atkinson-hyperlegible-next.woff2">
+  <link rel="stylesheet" href="/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header><div class="wrap bar">
+    <a class="brand" href="/"><picture>
+      <source type="image/webp" srcset="/images/logo-44.webp, /images/logo-88.webp 2x">
+      <img src="/images/logo-44.png" srcset="/images/logo-88.png 2x" width="44" height="44" alt="">
+    </picture><span>Panpa<span class="brand-k">k</span></span></a>
+    <nav aria-label="Main"><a href="/#status">Status</a><a href="https://github.com/panpak/panpak">Source code</a></nav>
+  </div></header>
+  <main id="main" class="wrap">{% block main %}{% endblock %}</main>
+  <footer><div class="wrap bar"><strong>Panpak</strong><span>Linux application packaging</span></div></footer>
+</body>
+</html>
