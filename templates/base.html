@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/outfit.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/atkinson-hyperlegible-next.woff2">
-  <link rel="stylesheet" href="/site.css">
+  <link rel="stylesheet" href="{{ get_url(path='site.css', cachebust=true) | trim_start_matches(pat=config.base_url) | safe }}">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
