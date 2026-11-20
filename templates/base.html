@@ -19,7 +19,7 @@
       <source type="image/webp" srcset="/images/logo-44.webp, /images/logo-88.webp 2x">
       <img src="/images/logo-44.png" srcset="/images/logo-88.png 2x" width="44" height="44" alt="">
     </picture><span>Panpa<span class="brand-k">k</span></span></a>
-    <nav aria-label="Main"><a href="/#status">Status</a><a href="https://github.com/panpak/panpak">Source code</a></nav>
+    <nav aria-label="Main"><a href="/how-it-works/"{% if current_path | default(value="") == "/how-it-works/" %} aria-current="page"{% endif %}>How it works</a><a href="/principles/"{% if current_path | default(value="") == "/principles/" %} aria-current="page"{% endif %}>Principles</a><a href="/for-app-authors/"{% if current_path | default(value="") == "/for-app-authors/" %} aria-current="page"{% endif %}>For app authors</a><a href="/security/"{% if current_path | default(value="") == "/security/" %} aria-current="page"{% endif %}>Security</a><a href="/faq/"{% if current_path | default(value="") == "/faq/" %} aria-current="page"{% endif %}>FAQ</a><a href="https://github.com/panpak/panpak">Source code</a></nav>
   </div></header>
   <main id="main" class="wrap">{% block main %}{% endblock %}</main>
   <footer><div class="wrap bar"><strong>Panpak</strong><span>Linux application packaging</span></div></footer>

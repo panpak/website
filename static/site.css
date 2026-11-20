@@ -99,3 +99,17 @@ footer { border-top: 1px solid var(--line); margin-top: 3rem; padding: 1.3rem 0;
   .status-columns { grid-template-columns: 1fr; }
   footer { font-size: .9rem; }
 }
+header .bar, nav, .actions { flex-wrap: wrap; }
+header .bar { padding-block: .7rem; }
+nav { gap: .4rem 1rem; }
+nav a[aria-current] { font-weight: 700; }
+.actions { display: flex; gap: .6rem; margin-top: 1.2rem; }
+.actions a { padding: .45rem .95rem; border: 1px solid var(--blue); color: var(--blue); border-radius: .4rem; text-decoration: none; }
+.actions a:first-child { color: var(--paper); background: var(--blue); }
+.document { max-width: 72ch; margin: 3rem auto; }
+.document h1 { max-width: none; }
+.document h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin-top: 2rem; }
+.document p, .document li { margin-block: .8rem; }
+.document pre { padding: 1rem; overflow-x: auto; background: var(--paper); border: 1px solid var(--line); }
+.document .diagram { display: block; width: 100%; background: white; }
+.document .mascot { margin-inline: auto; }

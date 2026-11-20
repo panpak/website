@@ -1,0 +1,20 @@
+flowchart TD
+  classDef piano stroke-dasharray:5 4,fill:#fff8e6,stroke:#c9a227,color:#333
+  classDef fatto fill:#e7f1fb,stroke:#7aa7d9,color:#123
+  classDef chiave fill:#e5f4e4,stroke:#5aa05a,color:#123
+  A["The same package, signed by its publisher,<br/>for each supported architecture"]:::fatto
+  A --> B["Author's website<br/>or release page"]:::fatto
+  A --> C["Distribution channel<br/>signed index naming the tested version<br/>Published by X, tested by Y"]:::piano
+  A --> D["General catalog<br/>for finding apps,<br/>not a source of trust"]:::piano
+  B --> E["Direct file download"]:::fatto
+  C --> F["Stores people already use:<br/>GNOME Software, Discover, Bazaar"]:::piano
+  D --> F
+  C --> G["Search from the terminal"]:::piano
+  D --> G
+  E --> H
+  F --> H
+  G --> H
+  H["Install with Panpak<br/>Check domain or expected key<br/>Review permissions and update origin"]:::chiave
+  H --> I["Installed app"]:::fatto
+  I --> J["Update from the recorded origin<br/>Review new permissions"]:::chiave
+  J --> I
