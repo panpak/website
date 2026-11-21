@@ -1,5 +1,6 @@
 +++
 title = "How it works"
+description = "Follow a Linux app from source or AppImage to a signed Panpak package, then see how Panpak verifies, installs and runs it."
 +++
 
 <div class="workflow-intro">

@@ -3,8 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Panpak is a pre-beta package format for Linux apps. Explore the source builds, sandbox and project roadmap.">
-  <title>{% block title %}Panpak · Linux application packages{% endblock %}</title>
+  {% if page %}
+    {% set title = page.title ~ " · Panpak" %}
+    {% set description = page.description %}
+    {% set canonical = page.permalink %}
+  {% elif section %}
+    {% set title = "Panpak · Linux application packages" %}
+    {% set description = section.description %}
+    {% set canonical = section.permalink %}
+  {% else %}
+    {% set title = "Page not found · Panpak" %}
+    {% set description = "This page could not be found. Return to the Panpak homepage to explore the Linux app format and its documentation." %}
+    {% set canonical = get_url(path="404.html") %}
+    <meta name="robots" content="noindex">
+  {% endif %}
+  {% set image = get_url(path="images/social-card.jpg") %}
+  {% set image_alt = "Panpak logo and waving mascot beside the headline “A signed package for Linux apps”." %}
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="{{ image }}">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ image_alt }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:image" content="{{ image }}">
+  <meta name="twitter:image:alt" content="{{ image_alt }}">
+  {% block structured_data %}{% endblock %}
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">

@@ -1,5 +1,6 @@
 +++
 title = "Principles"
+description = "Read the principles behind Panpak’s choices about speed, security, simplicity, compatibility and working with other Linux packaging projects."
 +++
 
 # Panpak guiding principles

@@ -1,5 +1,6 @@
 +++
 title = "FAQ"
+description = "Find answers about Panpak’s pre-beta status, root privileges, atomic distributions, publisher identities and other Linux package formats."
 +++
 
 # Frequently asked questions
@@ -10,7 +11,7 @@ Panpak explores whether an author can ship a signed file directly, let people re
 
 ## How does it differ from Flatpak, Snap and AppImage?
 
-Panpak shares AppImage’s direct-file distribution and uses desktop portals familiar to Flatpak users. It bundles the app’s libraries, checks a publisher signature and installs in the user’s home. Flatpak, Snap and AppImage have mature ecosystems with many more apps available today. Flathub also has a submission review process. Panpak is pre-beta and has no equivalent review service. [Project status](https://github.com/panpak/panpak#panpak) · [Flathub submission process](https://docs.flathub.org/docs/for-app-authors/submission/)
+Panpak shares AppImage’s direct-file distribution and uses desktop portals familiar to Flatpak users. It bundles most of the app’s libraries, checks a publisher signature and installs in the user’s home. Flatpak, Snap and AppImage have mature ecosystems with many more apps available today. Flathub also has a submission review process. Panpak is pre-beta and has no equivalent review service. [Project status](https://github.com/panpak/panpak#panpak) · [Flathub submission process](https://docs.flathub.org/docs/for-app-authors/submission)
 
 ## Is it safe to use today?
 
