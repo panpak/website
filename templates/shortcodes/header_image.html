@@ -1,0 +1,5 @@
+{% set prefix = "/images/headers/" ~ name %}
+<picture class="document-banner">
+  <source type="image/webp" sizes="(max-width: 850px) 90vw, 800px" srcset="{{ prefix }}-352.webp 352w, {{ prefix }}-480.webp 480w, {{ prefix }}-960.webp 960w">
+  <img src="{{ prefix }}-400.png" sizes="(max-width: 850px) 90vw, 800px" srcset="{{ prefix }}-280.png 280w, {{ prefix }}-400.png 400w" width="400" height="225" loading="lazy" alt="{{ alt }}">
+</picture>

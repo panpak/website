@@ -4,6 +4,8 @@ title = "For app authors"
 
 # For app authors
 
+{{ header_image(name="speed", alt="The Panpak robot riding a package across a network of Linux computers") }}
+
 **Pre-beta.** Use trusted inputs and disposable test data. Please hold off on publishing packages while the format and review process are still in development.
 
 ## Prepare the tools
