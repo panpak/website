@@ -1,0 +1,20 @@
+{
+  "theme": "dark",
+  "themeVariables": {
+    "fontFamily": "Arial, sans-serif",
+    "fontSize": "16px",
+    "lineColor": "#afafaf",
+    "edgeLabelBackground": "#000e1a"
+  },
+  "flowchart": {
+    "curve": "linear",
+    "htmlLabels": true,
+    "nodeSpacing": 44,
+    "rankSpacing": 48,
+    "padding": 20,
+    "wrappingWidth": 212,
+    "diagramPadding": 8
+  },
+  "themeCSS": ".node rect { rx: 14px !important; ry: 14px !important; } .edgeLabel p { color: #99ceff; background-color: #000e1a; border: 1px solid #26384a; border-radius: 14px; padding: 2px 8px; } .nodeLabel p { line-height: 1.25; font-weight: 500; padding-block: 3px; }",
+  "layout": "elk"
+}
