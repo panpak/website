@@ -1,2 +1,16 @@
 {% extends "base.html" %}
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["SoftwareApplication", "SoftwareSourceCode"],
+  "name": "Panpak",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Linux",
+  "license": "https://github.com/panpak/panpak#license",
+  "codeRepository": "https://github.com/panpak/panpak",
+  "isAccessibleForFree": true
+}
+</script>
+{% endblock %}
 {% block main %}{{ section.content | safe }}{% endblock %}

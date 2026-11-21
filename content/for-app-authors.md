@@ -1,5 +1,6 @@
 +++
 title = "For app authors"
+description = "Prepare the Panpak tools, convert an AppImage or build a signed Linux app package from a source recipe."
 +++
 
 # For app authors

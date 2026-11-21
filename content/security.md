@@ -1,5 +1,6 @@
 +++
 title = "Security"
+description = "Learn what Panpak checks in a package signature, which permissions its sandbox enforces and how to report a vulnerability."
 +++
 
 # Security

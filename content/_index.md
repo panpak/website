@@ -1,5 +1,6 @@
 +++
 title = "Panpak"
+description = "Panpak is a pre-beta Linux app format. Explore signed packages, sandbox permissions, source builds and the project roadmap."
 +++
 
 <section class="hero">
