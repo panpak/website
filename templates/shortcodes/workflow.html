@@ -1,0 +1,14 @@
+{% set prefix = "/images/diagrams/" ~ slug %}
+<p class="diagram-legend"><strong>Legend</strong>
+  <span><i class="exists"></i>Blue — exists today</span>
+  <span><i class="planned"></i>Dashed orange — planned</span>
+  <span><i class="trust-moment"></i>Green — the trust moment</span>
+  <span><i class="decision"></i>Dashed grey — a decision</span>
+</p>
+<div class="diagram-scroll" role="region" aria-label="{{ title }} diagram" tabindex="0">
+  <picture>
+    <source type="image/webp" sizes="(max-width: 650px) 1120px, (max-width: 900px) 90vw, 800px" srcset="{{ prefix }}-1120.webp 1120w, {{ prefix }}-{{ width }}.webp {{ width }}w">
+    <img width="{{ width }}" height="{{ height }}" src="{{ prefix }}-1120.png" sizes="(max-width: 650px) 1120px, (max-width: 900px) 90vw, 800px" srcset="{{ prefix }}-1120.png 1120w, {{ prefix }}-{{ width }}.png {{ width }}w" alt="{{ title }} diagram. Read the walk-through below.">
+  </picture>
+</div>
+<a href="{{ prefix }}-{{ width }}.png" aria-label="Open full size: {{ title }}">Open full size</a>

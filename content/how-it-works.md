@@ -13,20 +13,18 @@ title = "How it works"
 <img class="mascot" src="/images/box-420.webp" width="420" height="420" alt="The Panpak mascot coming out of a cardboard box.">
 </div>
 
-**Diagram legend.** Solid blue boxes exist today. Dashed yellow boxes are planned. Green boxes mark decisions about trust. Grey boxes show questions or events.
-
 ## From app to package
 
-An author starts with the app’s existing build and records its inputs in a recipe and lockfile. Panpak collects libraries and reports modules. The author exercises a real task in the sandbox, adjusts the recipe if it fails and signs the package. Its release history, software bill of materials (SBOM) and module report travel with it.
+{{ workflow(slug="from-app-to-package", title="From app to package", width=1858, height=3700) }}
 
-A community recipe collection, permission tracing and a command to compare changes between releases are planned. [Source builds](https://github.com/panpak/panpak/blob/main/docs/SOURCE-BUILD.md) · [Package format](https://github.com/panpak/panpak/blob/main/PANPAK-FORMAT.md)
-
-<a href="/diagrams/to-package.svg"><img class="diagram" src="/diagrams/to-package.svg" alt="Packaging flow from source through build, sandbox test and signing. Open the full-size diagram."></a>
+1. For a first release, the author or curator prepares a recipe. For a new upstream release, start with the previous recipe. Build a candidate, check its libraries with `panpak doctor`, and use the module report to identify plug-ins. A planned command, `panpak trace`, would record permissions used during a real task.
+2. Test the features people need. If a test fails, use the report to correct the recipe, rebuild and try again. When the tests pass, the publisher reviews the results or the changes since the last release. A planned `panpak diff` would highlight new permissions and libraries.
+3. The author signs with the key for the app’s domain-based ID. Community signing policy is still open: a curator might use their own ID and credit, or use the author’s ID with verified delegation. The signed release includes a software bill of materials, release history and module report. Independent rebuild verification is planned.
 
 ## From package to user
 
-Today you can download a signed file directly. At first install you review the permissions and decide whether to trust the publisher’s key. Panpak can check a key against the publisher’s domain or a key you already know. Updates follow the recorded origin and new permissions require confirmation.
+{{ workflow(slug="from-package-to-user", title="From package to user", width=2014, height=4200) }}
 
-Distribution channels, store integration and catalog search are planned. In that design, a distribution can identify the build it tested while preserving the publisher’s signature. [Publisher trust and updates](https://github.com/panpak/panpak/blob/main/PANPAK-FORMAT.md)
-
-<a href="/diagrams/to-user.svg"><img class="diagram" src="/diagrams/to-user.svg" alt="Distribution flow from the publisher to direct download, install and updates, alongside planned stores and search. Open the full-size diagram."></a>
+1. Get the signed package from the author’s website or release page. General catalogs, distribution-tested channels and store integration are planned. Panpak verifies the signature, then checks the publisher’s key against the app’s domain or a key supplied with `--expect-key`. Confirmation through a distribution catalog is planned.
+2. The publisher check has three results: **contradicted (install stops)**, **not confirmed (the key is shown and the user decides)**, **confirmed**. Review the publisher, permissions and update source before accepting. If you decline, installation ends. If you accept, Panpak installs the app and records where to get updates.
+3. Panpak looks for updates at the recorded source and checks the signature, publisher and permissions. It asks before granting new permissions. A failed check or a declined change keeps the installed version. An accepted update takes effect when the app closes.
