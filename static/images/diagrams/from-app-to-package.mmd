@@ -1,0 +1,31 @@
+%%{init: {"theme": "dark"}}%%
+flowchart TD
+  classDef default fill:#10151a,stroke:#589bd3,stroke-width:1.3px,color:#ededed
+  classDef planned fill:#17130f,stroke:#f0a04b,stroke-width:2.5px,stroke-dasharray:6 4,color:#ededed
+  classDef trust fill:#111714,stroke:#58bb85,stroke-width:2px,color:#ededed
+  classDef decision fill:#151617,stroke:#afafaf,stroke-dasharray:2 2,color:#ededed
+  A["First release"] --> B["The author or curator prepares the recipe"]
+  C["New upstream release"] --> D["Reuse the previous release's recipe"]
+  B --> E["Build the release candidate"]
+  D --> E
+  E --> F["Panpak identifies libraries with doctor and plugins with the module report"]
+  F -.-> F2["Planned · panpak trace identifies permissions used during a real run"]:::planned
+  F --> G["Test the expected app features"]
+  F2 -.-> G
+  G --> H["Did the tests pass?"]:::decision
+  H -->|"Yes"| K["Is there a previous release?"]:::decision
+  K -->|"No"| N["The publisher confirms the initial results"]
+  K -->|"Yes"| M["The publisher reviews and confirms the changes"]
+  L["Planned · panpak diff highlights new permissions and libraries"]:::planned -.->|"will help the review"| M
+  N --> O["Who can sign for this package ID?"]:::decision
+  M --> O
+  O -->|"The author"| P["Sign with the author's key. The ID corresponds to the author's domain."]:::trust
+  O -.->|"Community build"| Q["Planned · Community packaging policy to be decided"]:::planned
+  Q -.->|"Option A"| R["Planned · Use the curator's ID and label the package as packaged by the curator"]:::planned
+  Q -.->|"Option B"| S["Planned for beta · Use the author's ID with verified delegation from the author"]:::planned
+  P --> T["Signed release with SBOM, release history and module report"]
+  R -.-> T
+  S -.-> T
+  T -.-> U["Planned · An independent rebuilder verifies that the package is reproducible"]:::planned
+  H -->|"No"| I["Panpak reports what is missing and which test failed"]
+  I --> J["Correct the recipe and build again (back to 'Build the release candidate')"]

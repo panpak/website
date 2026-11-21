@@ -1,0 +1,36 @@
+%%{init: {"theme": "dark"}}%%
+flowchart TD
+  classDef default fill:#10151a,stroke:#589bd3,stroke-width:1.3px,color:#ededed
+  classDef planned fill:#17130f,stroke:#f0a04b,stroke-width:2.5px,stroke-dasharray:6 4,color:#ededed
+  classDef trust fill:#111714,stroke:#58bb85,stroke-width:2px,color:#ededed
+  classDef decision fill:#151617,stroke:#afafaf,stroke-dasharray:2 2,color:#ededed
+  A["The same signed package"] --> B["The author's website or release page"]
+  A -.-> C["Planned · General catalog"]:::planned
+  A -.-> D["Planned · The distribution tests the exact build"]:::planned
+  D -.-> E["Planned · The distribution's curated channel"]:::planned
+  B --> F["Direct file or command line"]
+  C -.-> G["Planned · Catalog, command line or integrated store"]:::planned
+  E -.-> G
+  F --> H["Panpak verifies the package signature"]
+  G -.-> H
+  H --> I["How is the publisher recognised?"]:::decision
+  I -->|"Domain"| J["Confirmed by the domain of the app ID"]:::trust
+  I -.->|"Distribution"| K["Planned · Confirmed by the distribution's catalog"]:::planned
+  I -->|"Script"| L["Compared with --expect-key"]
+  J --> M["Result of the check"]:::decision
+  K -.-> M
+  L --> M
+  M -->|"Contradicted"| N["Install stops, with the reason"]
+  M -->|"Not confirmed"| O["The key is shown: install only if you trust the place you got the file from"]
+  M -->|"Confirmed"| P["Shows the publisher, the permissions and where updates will come from"]
+  O --> P
+  P --> Q["Does the user confirm?"]:::decision
+  Q -->|"No"| R["Ends without installing"]
+  Q -->|"Yes"| S["Installs and records where updates come from"]:::trust
+  S --> T["Looks for the next release in the recorded channel"]
+  T --> U["Checks signature, identity and permission changes"]:::decision
+  U -->|"A check fails"| V["Keeps the installed version"]
+  U -->|"New permissions"| W["Shows the changes and asks"]:::decision
+  W -->|"Rejected"| V
+  W -->|"Accepted"| X["Applies the update when the app closes; the next check starts again from 'Looks for the next release'"]
+  U -->|"All checks pass"| X
