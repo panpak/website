@@ -127,8 +127,11 @@ nav a[aria-current] { font-weight: 700; }
   background: #0e0e0e;
 }
 .diagram-scroll img { display: block; width: 100%; height: auto; }
+.diagram-zoom, .diagram-zoom-label { display: none; }
 @media (max-width: 650px) {
-  .diagram-scroll img { min-width: 1120px; }
+  .diagram-zoom, .diagram-zoom-label { display: inline-block; }
+  .diagram-zoom-label { padding-block: .5rem; cursor: pointer; }
+  .diagram-zoom:checked + label + .diagram-scroll img { min-width: 1120px; }
 }
 .workflow-intro {
   display: grid;
