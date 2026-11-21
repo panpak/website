@@ -4,6 +4,8 @@ title = "Security"
 
 # Security
 
+{{ header_image(name="security", alt="The Panpak robot inside a protective dome, holding a shield") }}
+
 ## What the signature tells you
 
 Panpak checks the signature on the manifest and file index. It checks the contents against that index when preparing the app and checks the signature and pinned key again at launch. A signature identifies a signing key. A publisher can still sign harmful software.

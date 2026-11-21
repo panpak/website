@@ -111,7 +111,28 @@ nav a[aria-current] { font-weight: 700; }
 .document h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin-top: 2rem; }
 .document p, .document li { margin-block: .8rem; }
 .document pre { padding: 1rem; overflow-x: auto; background: var(--paper); border: 1px solid var(--line); }
-.document .diagram { display: block; width: 100%; background: white; }
+.diagram-legend { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem 1rem; }
+.diagram-legend span { display: inline-flex; align-items: center; gap: .35rem; }
+.diagram-legend i { width: 1rem; height: .7rem; border: 2px solid; border-radius: .2rem; }
+.diagram-legend .exists { border-color: var(--blue); }
+.diagram-legend .planned { border: 2px dashed var(--orange); }
+.diagram-legend .trust-moment { border-color: var(--green); }
+.diagram-legend .decision { border: 2px dashed var(--muted); }
+.diagram-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-bottom: .5rem;
+  border: .5rem solid #0e0e0e;
+  border-radius: .85rem;
+  background: #0e0e0e;
+}
+.diagram-scroll img { display: block; width: 100%; height: auto; }
+.diagram-zoom, .diagram-zoom-label { display: none; }
+@media (max-width: 650px) {
+  .diagram-zoom, .diagram-zoom-label { display: inline-block; }
+  .diagram-zoom-label { padding-block: .5rem; cursor: pointer; }
+  .diagram-zoom:checked + label + .diagram-scroll img { min-width: 1120px; }
+}
 .workflow-intro {
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(5rem, 21vw, 11rem);
@@ -126,3 +147,5 @@ nav a[aria-current] { font-weight: 700; }
 @media (max-width: 650px) {
   .workflow-intro h1 { font-size: clamp(2rem, 9vw, 2.75rem); }
 }
+.document-banner { display: block; margin-block: 1.25rem; }
+.document-banner img { display: block; width: 100%; height: auto; }
