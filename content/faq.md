@@ -23,7 +23,7 @@ Panpak installs apps, data and its runtime in your home. It needs no Panpak syst
 
 ## Does it work on atomic distributions?
 
-Installing in your home leaves the system image untouched. The project reports real-app tests on Bluefin. A reproducible comparison with Flatpak on Fedora Silverblue is coming soon. [Distribution support and tests](https://github.com/panpak/panpak#any-distribution-and-perfect-for-atomic-ones)
+Installing in your home leaves the system image untouched. The project reports real-app tests on Bluefin. [Distribution support and tests](https://github.com/panpak/panpak#any-distribution-and-perfect-for-atomic-ones)
 
 ## How do I know who published a package?
 
