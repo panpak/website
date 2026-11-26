@@ -84,6 +84,7 @@ td:first-child { padding-left: 1.25rem; position: relative; }
 td:last-child, th:last-child { text-align: right; }
 .roadmap p, #status > p, main > p { color: var(--muted); max-width: 68ch; }
 #status > p, main > p { margin-top: .65rem; }
+#status > p + h3 { margin-top: 2rem; }
 main > h2 { margin-top: 2.5rem; }
 footer { border-top: 1px solid var(--line); margin-top: 3rem; padding: 1.3rem 0; color: var(--muted); }
 .eyebrow { margin-bottom: 1rem; }
