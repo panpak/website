@@ -32,12 +32,12 @@ description = "Follow a Linux app from source or AppImage to a signed Panpak pac
 
 ## When an app does not start
 
-If an app closes right after you start it, crashes while starting, or is stopped by the system, Panpak tells you with a notification titled “App didn’t start”. The notification says why in one sentence (for example “The app closed right after starting (error code 3).”). The reason is always Panpak’s own words, never text taken from the app.
+If an app fails within 20 seconds of starting (it closes with an error code, crashes, or is stopped by the system), Panpak tells you with a notification titled “{app} didn’t start”, with the app’s name in place of {app}. An app that closes without an error code does not trigger this notification. The notification says why in one sentence (for example “The app closed right after starting (error code 3).”). The reason is always Panpak’s own words, never text taken from the app.
 
 If the app wrote something before it stopped, the notification has a button **Show details** that opens the last part of what it wrote. That file can contain personal data: read it before you send it to anyone. The notification is a banner and does not stay in your list.
 
 If the same version fails twice in a row and an earlier version had been working, Panpak asks whether to go back to the earlier version or try again. Going back keeps your documents as they are.
 
-**Known limits.** If you start the app from a terminal, the reason is written in the terminal and there is no “didn’t start” notification, but the question about going back can still appear. A problem inside the sandbox setup is shown as “closed right after starting (error code 1)”, and the real reason is in the details. “Show details” opens the file with your desktop’s default program: on GNOME it is chosen by the file name; on a desktop that looks at the content, an app could make its log open in another program, such as a browser.
+**Known limits.** If you start the app from a terminal, the reason is written in the terminal and there is no “didn’t start” notification, but the question about going back can still appear. A problem inside the sandbox setup is shown as “closed right after starting (error code 1)”, and the real reason is in the details. “Show details” opens the file with your desktop’s default program: on GNOME it is chosen by the file name; on a desktop that looks at the content, an app could make its log open in another program, such as a browser. Without a notification service, the “didn’t start” notification is not shown. The log is still saved.
 
 [Source: dialogs and notifications](https://github.com/panpak/panpak/blob/ee58ce53e8806208a7109ae922d448f63dc4879e/docs/DIALOGS.md#an-app-that-did-not-start-a-notification-with-or-without-those-tools)
