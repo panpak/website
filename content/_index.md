@@ -32,6 +32,8 @@ A `.panpak` file carries the app, its permissions and a signed index of its cont
 - Before you install an app, Panpak shows the permissions it requests and pins the publisher’s key when you accept. On a first install, Panpak can confirm that key against the keys the publisher lists for the app on their domain. <span class="trust">[Install permissions](https://github.com/panpak/panpak#what-an-app-can-ask-for) · [Domain confirmation](https://github.com/panpak/panpak/blob/main/PANPAK-FORMAT.md#321-confirmation-of-the-domain-normative)</span>
 - Panpak checks the publisher’s signature at every start and runs the app in a layered sandbox, without root privileges or a separate runtime download. Bubblewrap gives each app an isolated view of the filesystem, Landlock restricts file access, and seccomp filters system calls. [Sandbox and its limits](https://github.com/panpak/panpak/blob/main/THREAT-MODEL.md)
 - The store keeps one copy of each identical file, and updates reuse chunks already on disk. On 20 November 2026, a local HTTP server counted the bytes it sent to update Simplenote from 2.27.0 to 2.27.1. Panpak fetched 1.1% of the new package. [Update benchmark and method](https://github.com/panpak/panpak/blob/main/docs/BENCHMARKS.md#update-size)
+- CI rejects a tracked file that names a maintainer’s private work folder. [Change and CI check](https://github.com/panpak/panpak/pull/115)
+- The private-bus round trip is reproducible with `python3 tests/privbus.py --rawlat docs/bench-data/privbus-rawlat.csv`. The latest series disagree, so Panpak states no product figure. [Method and data](https://github.com/panpak/panpak/blob/main/docs/PRIVATE-BUS.md)
 - You can use `panpak convert` to turn an existing AppImage into a Panpak package that you sign yourself. [AppImage conversion guide](https://github.com/panpak/panpak/blob/main/QUICKSTART.md)
 - Publishers use `panpak key new` to create a signing key and a separate recovery key. The command shows the recovery key once as a phrase to keep on paper. <span class="trust">[Publisher keys](https://github.com/panpak/panpak#quick-start)</span>
 - You can build GNOME Text Editor, qBittorrent and Ghostty from source using the example recipes and their lockfiles. [Source build guide](https://github.com/panpak/panpak/blob/main/docs/SOURCE-BUILD.md)
@@ -44,13 +46,21 @@ A `.panpak` file carries the app, its permissions and a signed index of its cont
 | Planned support | Project step |
 | --- | --- |
 | Graphical Panpak app | 10b |
-| Apps with embedded browsers | 12 |
-| Terminal programs | 14 |
+| Close defects found in practical testing | [9e](https://github.com/panpak/panpak/blob/main/bench/silverblue/RESULTS.md) |
+| Apps with embedded browsers | [12](https://github.com/panpak/panpak/blob/main/docs/decisions/0004-freeze-after-steps-12-14-and-9h.md) |
+| Terminal programs | [14](https://github.com/panpak/panpak/blob/main/docs/decisions/0004-freeze-after-steps-12-14-and-9h.md) |
+| Run one app of each kind through the whole cycle | [9h](https://github.com/panpak/panpak/blob/main/docs/decisions/0004-freeze-after-steps-12-14-and-9h.md) |
 
 These steps describe the order of work. They have no promised release dates.
 
+After that, the format can be frozen.
+
 </div>
 </div>
+
+### Work in progress
+
+The first start of GIMP converted from AppImage is slower than Flatpak. The cause is still being investigated. This page gives no figure. [Practical-test notes](https://github.com/panpak/panpak/blob/main/bench/silverblue/RESULTS.md)
 
 ### What to expect
 
@@ -61,7 +71,3 @@ The format can change. There are no releases, registry or package review process
 ## Explore the project
 
 App authors can start with the [source build guide](https://github.com/panpak/panpak/blob/main/docs/SOURCE-BUILD.md). For reviewers, the [threat model](https://github.com/panpak/panpak/blob/main/THREAT-MODEL.md) describes the sandbox and its known limits. Volunteers can explore the [guiding principles](https://github.com/panpak/panpak/blob/main/docs/PRINCIPLES.md) and [project roadmap](https://github.com/panpak/panpak#roadmap).
-
-## Coming soon
-
-A reproducible comparison with Flatpak on Fedora Silverblue and a guide to the package specification are planned.
